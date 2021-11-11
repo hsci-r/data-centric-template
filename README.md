@@ -35,6 +35,7 @@ When using Python, try to follow [pep8](https://www.python.org/dev/peps/pep-0008
 - If you have multiple tables, make sure column names are unique across all of them. So e.g. if both books as well as people have names, use `book_name` in the book table and `person_name` in the person table instead of using just `name` in both.
 - Organize data using [tidy data](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) principles.
 - If your data contains one-to-many or many-to-many relations, generally follow relational modeling principles, with one-to-one core attribute tables for the entries, and separate link tables encoding the one-to-many and many-to-many relations. Particularly, no cross-product tables that duplicate attributes. See further below.
+- For parsed date and datetime fields, use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (`YYYY-MM-DD` and `YYYY-MM-DDThh:mm:ss[Z]`). For datetimes, if possible use Coordinated Universal Time by first giving the local datetime and then the UTC offset, so e.g. midnight Helsinki time should be encoded as `00:00:00+02:00` or `00:00:00+03:00` depending on Daylight Saving Time instead of `22:00:00Z` or `21:00:00Z`. If resolving times to UTC is too hard, just stick to local time and don't give an UTC offset.
 
 ### Handling multiple attribute values / one-to-many / many-to-many relations
 
