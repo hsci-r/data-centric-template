@@ -25,8 +25,8 @@ In data file columns as well as code variable and function names, use primarily 
 
 ## Coding conventions
 
-- When using Python, try to follow [pep8](https://www.python.org/dev/peps/pep-0008/).
-- When using R, prefer [tidyverse](https://www.tidyverse.org/packages/) functions to base R.
+- When using Python, try to follow [pep8](https://www.python.org/dev/peps/pep-0008/). [autopep8](https://pypi.org/project/autopep8/) and a matching editor plugin/[pre-commit-hook](https://pre-commit.com/) or equivalent support will help in this.
+- When using R, prefer [tidyverse](https://www.tidyverse.org/packages/) functions to base R. Also try to follow the [tidyverse style guide](https://style.tidyverse.org/). [styler](https://styler.r-lib.org/) and a matching editor plugin/[pre-commit-hook](https://pre-commit.com/) or equivalent support will help.
 - It is desireable to have a `Makefile` or equivalent in the project, through which we can track what code produces what data and through which we can also rerun the pipelines
 - Generally, try to make sure there is an easy way by which all the dependencies of a project can be installed. To ensure this, prefer isolated project environments.
   - For managing dependencies in Python projects, prefer using [Poetry](https://python-poetry.org/).
