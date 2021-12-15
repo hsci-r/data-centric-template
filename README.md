@@ -30,7 +30,7 @@ In data file columns as well as code variable and function names, use primarily 
 - It is desireable to have a `Makefile` or equivalent in the project, through which we can track what code produces what data and through which we can also rerun the pipelines
 - Generally, try to make sure there is an easy way by which all the dependencies of a project can be installed. To ensure this, prefer isolated project environments.
   - For managing dependencies in Python projects, prefer using [Poetry](https://python-poetry.org/).
-  - For managing dependencies in R, prefer using [Packrat](https://rstudio.github.io/packrat/).
+  - For managing dependencies in R, prefer using [renv](https://rstudio.github.io/renv/).
   - For projects combining Python and R, use both.
   - Don't commit the env directories created by the above tools to git, instead just commit the definition/lock files.
 - Using notebooks is ok, but:
