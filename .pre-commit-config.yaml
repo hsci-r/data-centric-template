@@ -42,5 +42,5 @@ repos:
 #        entry: pylint
 #        language: system
 #        types: [python]
-#        args: ["--fail-under=7.0"]
+#        args: ["--fail-under=7.0","--max-line-length=120"]
 
