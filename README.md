@@ -6,22 +6,22 @@ Put all data under `data`, all code under `code`. Track everything under `data` 
 
 Under `data`, the `data/input` folder is to contain all data that comes to the project from outside. If it comes from a git repository, use git submodules to import it. If the data is over about 500MB in size, do not include it, but instead add a `README.md` that points to it in e.g. [IDA](http://ida.fairdata.fi/).
 
-All data produced by code should go into `data/processed`. Everything under `data/processed` should in principle be automatically regenerateable from what is in `data/input`.
+All data produced by code should go either into `data/work` or `data/output`. If the purpose of the repo is to produce a unified clean dataset, put the files part of that into `data/output`, and make that directory its own git repo and a submodule. This way, downstream analysis repos can import only the clean data and not the code, input or other cruft. 
 
-If the project contains manually created data, two choices are available:
+Files that are clearly just intermediate/temporary steps in the process should be put under `data/work`. Mostly do not commit this directory or the files in it into git. The exception is if reproducing them takes a long time, or if you think they're otherwise useful (but then maybe they don't belong under `work` in the first place).
 
-1. Put this data in `data/input` and have the `Makefile` or equivalent copy it under `data/processed`.
-2. Put the data under `data/manual` instead.
+Everything under `data/work` and `data/output` should in principle be automatically regenerateable from what is in `data/input`. If there needs to be some manually created data in `data/output`, two choices are available:
 
-If the purpose of the repo is to produce a unified clean dataset, consider having a `data/processed/final` folder which is its own git repo and a submodule. This way, downstream analysis repos can import only the clean data and not the code, input or other cruft.
+1. Put this data in `data/input` and have the `Makefile` or equivalent copy it under `data/output`.
+2. Document clearly which parts of `data/output` are not regenerateable.
 
-If you produce files that are clearly just intermediate/temporary steps in the process, put them under `data/processed/intermediate`. Mostly do not commit these files into git. The exception is if reproducing them takes a long time, or if you think they're otherwise useful (but then maybe they don't belong under `intermediate` in the first place).
+If the repository has multiple people experimenting with different things in it that are liable to make the repo a mess (e.g. exploratory analyses), partition both code and data into subdirectories by username, e.g. `code/analysis/jiemakel`, `data/work/jiemakel` and so on, so that each person is free to make a mess only in their subpart of the project, where they'll hopefully remember what's what. 
 
-If the repository has multiple people experimenting with different things in it that are liable to make the repo a mess (e.g. exploratory analyses), partition both code and data into subdirectories by username, e.g. `code/analysis/jiemakel`, `data/processed/jiemakel` and so on, so that each person is free to make a mess only in their subpart of the project, where they'll hopefully remember what's what.
+For analysis repositories, create a common basis that loads/prepares access to a unified common source data set, so that everyone is operating with a shared common version of the data. Name this e.g. `code/common_basis.R` and call it from e.g. the analysis notebooks to load the data.
 
 ## Naming conventions
 
-In data file columns as well as code variable and function names, use primarily `_` as a separator. E.g. `document_id`, not `documentId`, `parse_document_id` not `parseDocumentId`. For filenames, either `parse-document-ids.py` or `parse_document_ids.py` is permissible.
+In data file columns as well as code variable and function names, use primarily `_` as a separator. E.g. `document_id`, not `documentId`, `parse_document_id` not `parseDocumentId`. For filenames, either `parse-document-ids.py` or `parse_document_ids.py` is permissible, but please be consistent within a single project.
 
 ## Coding conventions
 
