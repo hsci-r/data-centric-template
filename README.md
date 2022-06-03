@@ -17,7 +17,7 @@ Everything under `data/work` and `data/output` should in principle be automatica
 
 If the repository has multiple people experimenting with different things in it that are liable to make the repo a mess (e.g. exploratory analyses), partition both code and data into subdirectories by username, e.g. `code/analysis/jiemakel`, `data/work/jiemakel` and so on, so that each person is free to make a mess only in their subpart of the project, where they'll hopefully remember what's what. 
 
-For analysis repositories, create a common basis that loads/prepares access to a unified common source data set, so that everyone is operating with a shared common version of the data. Name this e.g. `code/common_basis.R` and call it from e.g. the analysis notebooks to load the data.
+For analysis repositories, create a common basis that loads/prepares access to a unified common source data set, so that everyone is operating with a shared common version of the data. Name this e.g. `code/common_basis.R` and call it from e.g. the analysis notebooks to load the data. 
 
 ## Naming conventions
 
@@ -90,3 +90,9 @@ person_id   book_id role
 person_1    book_1  author
 person_1    book_1  publisher
 ```
+
+## Reproducibility
+
+- If an analysis repo ends up as an article, at the point of submission, clearly separate final code (e.g. code producing the final figures used in the article) from other code. You can do this either by moving these to separate files, or by clearly flagging the relevant parts of a larger notebook file. The important bit is that it must be clear to an outsider which code path leads to reproducing the results in the article.
+- At this point, also make sure that it is possible to run the code from a fresh checkout (e.g. make sure dependency management works).
+- Make sure that both the code repo as well as all repositories it depends on for either data or code are versioned and those versions archived (e.g. by [linking the repositories to Zenodo](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content) and creating versioned releases from them)
