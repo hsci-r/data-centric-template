@@ -6,7 +6,7 @@ Put all data under `data`, all code under `code`. Track everything under `data` 
 
 Under `data`, the `data/input` folder is to contain all data that comes to the project from outside. If it comes from a git repository, use git submodules to import it. If the data is over about 500MB in size, do not include it, but instead add a `README.md` that points to it in e.g. [IDA](http://ida.fairdata.fi/).
 
-All data produced by code should go either into `data/work` or `data/output`. If the purpose of the repo is to produce a unified clean dataset, put the files part of that into `data/output`, and make that directory its own git repo and a submodule. This way, downstream analysis repos can import only the clean data and not the code, input or other cruft. 
+All data produced by code should go either into `data/work` or `data/output`. If the purpose of the repo is to produce a unified clean dataset, put the files part of that into `data/output`, and make that directory its own git repo and a submodule. This way, downstream analysis repos can import only the clean data and not the code, input or other cruft.
 
 Files that are clearly just intermediate/temporary steps in the process should be put under `data/work`. Mostly do not commit this directory or the files in it into git. The exception is if reproducing them takes a long time, or if you think they're otherwise useful (but then maybe they don't belong under `work` in the first place).
 
@@ -17,9 +17,9 @@ Everything under `data/work` and `data/output` should in principle be automatica
 
 If hand-curation of data is necessary, the best practice for this is to employ patch files added to `data/input` that document entries to be amended, what to remove and what to add and so on. This way, these patches can be re-applied to new data coming in, while also maintaining a clear record of what has been manually changed, further improving reproducibility and rerunnability.
 
-If the repository has multiple people experimenting with different things in it that are liable to make the repo a mess (e.g. exploratory analyses), partition both code and data into subdirectories by username, e.g. `code/analysis/jiemakel`, `data/work/jiemakel` and so on, so that each person is free to make a mess only in their subpart of the project, where they'll hopefully remember what's what. 
+If the repository has multiple people experimenting with different things in it that are liable to make the repo a mess (e.g. exploratory analyses), partition both code and data into subdirectories by username, e.g. `code/analysis/jiemakel`, `data/work/jiemakel` and so on, so that each person is free to make a mess only in their subpart of the project, where they'll hopefully remember what's what.
 
-For analysis repositories, create a common basis that loads/prepares access to a unified common source data set, so that everyone is operating with a shared common version of the data. Name this e.g. `code/common_basis.R` and call it from e.g. the analysis notebooks to load the data. 
+For analysis repositories, create a common basis that loads/prepares access to a unified common source data set, so that everyone is operating with a shared common version of the data. Name this e.g. `code/common_basis.R` and call it from e.g. the analysis notebooks to load the data.
 
 ## Naming conventions
 
