@@ -36,9 +36,10 @@ In data file columns as well as code variable and function names, use primarily 
   - For projects combining Python and R, use both.
   - Don't commit the env directories created by the above tools to git, instead just commit the definition/lock files.
 - Using notebooks is ok, but:
+  - Try to ensure dependency management is still sensible
   - For Python, prefer `#%%` style in plain `.py` files instead of `.ipynb` (see e.g. [Scientific Tools for PyCharm](https://www.jetbrains.com/pycharm/features/scientific_tools.html), [Python Interactive window in VSCode](https://code.visualstudio.com/docs/python/jupyter-support-py) or [Jupytext for Jupyter Notebook](https://github.com/mwouts/jupytext)).
   - For R, prefer `.Rmd` to `.ipynb`.
-  - Try to ensure dependency management is still sensible
+  - If storing cell outputs is desired (e.g. for analysis repositories), for R store an `.nb.html` alongside the `.Rmd` (RStudio does this automatically when the notebook type is set to [`html_notebook`](https://bookdown.org/yihui/rmarkdown/notebook.html)) and for Python, store an `.ipynb` alongside (You can use [Jupytext](https://github.com/mwouts/jupytext) to keep these in sync. Automated syncing is enabled in Jupyter by 1) installing the jupytext extension and 2) [adding](https://github.com/mwouts/jupytext/blob/main/docs/paired-notebooks.md) the appropriate metadata to the files)
 
 ## Data conventions
 
