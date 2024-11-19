@@ -31,7 +31,7 @@ In data file columns as well as code variable and function names, use primarily 
 - When using R, prefer [tidyverse](https://www.tidyverse.org/packages/) functions to base R. Also try to follow the [tidyverse style guide](https://style.tidyverse.org/). [styler](https://styler.r-lib.org/) and a matching editor plugin/[pre-commit-hook](https://pre-commit.com/) or equivalent support will help.
 - It is desireable to have a `Makefile` or equivalent in the project, through which we can track what code produces what data and through which we can also rerun the pipelines
 - Generally, try to make sure there is an easy way by which all the dependencies of a project can be installed. To ensure this, prefer isolated project environments.
-  - For managing dependencies in Python projects, prefer using [Poetry](https://python-poetry.org/).
+  - For managing dependencies in Python projects, prefer using [uv](https://docs.astral.sh/uv/).
   - For managing dependencies in R, prefer using [renv](https://rstudio.github.io/renv/).
   - For projects combining Python and R, use both.
   - Don't commit the env directories created by the above tools to git, instead just commit the definition/lock files.
